@@ -1,12 +1,12 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
 {\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fswiss\fcharset0 Helvetica;\f2\fnil\fcharset0 Menlo-Bold;
-\f3\fnil\fcharset0 Menlo-Italic;}
+\f3\fnil\fcharset0 Monaco;\f4\fnil\fcharset0 Menlo-Italic;}
 {\colortbl;\red255\green255\blue255;\red253\green143\blue63;\red31\green31\blue36;\red252\green106\blue93;
-\red252\green95\blue163;\red255\green255\blue255;\red122\green200\blue182;\red150\green134\blue245;\red145\green212\blue98;
-\red153\green232\blue213;\red33\green138\blue35;}
+\red252\green95\blue163;\red255\green255\blue255;\red122\green200\blue182;\red153\green232\blue213;\red150\green134\blue245;
+\red145\green212\blue98;\red33\green138\blue35;}
 {\*\expandedcolortbl;;\csgenericrgb\c99131\c56076\c24611;\csgenericrgb\c12054\c12284\c14131;\csgenericrgb\c98912\c41558\c36568;
-\csgenericrgb\c98839\c37355\c63833;\csgenericrgb\c100000\c100000\c100000;\csgenericrgb\c47716\c78607\c71403;\csgenericrgb\c58752\c52717\c95948;\csgenericrgb\c56799\c83212\c38450;
-\csgenericrgb\c59926\c90967\c83488;\csgenericrgb\c13076\c53986\c13855;}
+\csgenericrgb\c98839\c37355\c63833;\csgenericrgb\c100000\c100000\c100000;\csgenericrgb\c47716\c78607\c71403;\csgenericrgb\c59926\c90967\c83488;\csgenericrgb\c58752\c52717\c95948;
+\csgenericrgb\c56799\c83212\c38450;\csgenericrgb\c13076\c53986\c13855;}
 \margl1440\margr1440\vieww10800\viewh8400\viewkind0
 \deftab593
 \pard\tx593\pardeftab593\pardirnatural\partightenfactor0
@@ -18,6 +18,9 @@
 \f1 \cf0 \
 
 \f0 \cf2 #include \cf4 <map>
+\f1 \cf0 \
+
+\f0 \cf2 #include \cf4 <algorithm>
 \f1 \cf0 \
 
 \f2\b \cf5 using
@@ -40,25 +43,53 @@
 \f0 \cf6 \{
 \f1 \cf0 \
 
+\f0 \cf6     \cf7 string\cf6  keyword;
+\f1 \cf0 \
+
+\f0 \cf6     \cf7 cout\cf6 <<\cf4 "M\uc0\u7901 i Nh\u7853 p KeyWord: "\cf6 ;
+\f1 \cf0 \
+
+\f0 \cf6     \cf7 cin\cf6 >>keyword;
+\f1 \cf0 \
+
+\f0 \cf6     \cf8 transform\cf6 (keyword.\cf8 begin\cf6 (), keyword.\cf8 end\cf6 (), keyword.\cf8 begin\cf6 (),::\cf8 tolower\cf6 );
+\f1 \cf0 \
+
+\f0 \cf6     \cf7 cout\cf6 <<\cf8 endl\cf6 ;
+\f1 \cf0 \
+
+\f0 \cf6     \cf7 cout\cf6 <<\cf4 "M\uc0\u7901 i Nh\u7853 p chu
+\f3 \uc0\u7895 
+\f0 i c
+\f3 \uc0\u7847 
+\f0 n m\'e3 ho\'e1: "\cf6 ;
+\f1 \cf0 \
+
 \f0 \cf6     \cf7 string\cf6  s;
+\f1 \cf0 \
+
+\f0 \cf6     \cf7 cin\cf6 >>s;
+\f1 \cf0 \
+
+\f0 \cf6     \cf7 cout\cf6 <<\cf8 endl\cf6 ;
 \f1 \cf0 \
 
 \f0 \cf6     
 \f2\b \cf5 char
-\f0\b0 \cf6  alpha[] = \{\cf8 'a'\cf6 ,\cf8 'b'\cf6 ,\cf8 'c'\cf6 ,\cf8 'd'\cf6 ,\cf8 'e'\cf6 ,\cf8 'f'\cf6 ,\cf8 'g'\cf6 ,\cf8 'h'\cf6 ,\cf8 'i'\cf6 ,\cf8 'j'\cf6 ,\cf8 'k'\cf6 ,\cf8 'l'\cf6 ,\cf8 'm'\cf6 ,\cf8 'n'\cf6 ,\cf8 'o'\cf6 ,\cf8 'p'\cf6 ,\cf8 'q'\cf6 ,\cf8 'r'\cf6 ,\cf8 's'\cf6 ,\cf8 't'\cf6 ,\cf8 'u'\cf6 ,\cf8 'v'\cf6 ,\cf8 'w'\cf6 ,\cf8 'x'\cf6 ,\cf8 'y'\cf6 ,\cf8 'z'\cf6 \};
+\f0\b0 \cf6  alpha[] = \{\cf9 'a'\cf6 ,\cf9 'b'\cf6 ,\cf9 'c'\cf6 ,\cf9 'd'\cf6 ,\cf9 'e'\cf6 ,\cf9 'f'\cf6 ,\cf9 'g'\cf6 ,\cf9 'h'\cf6 ,\cf9 'i'\cf6 ,\cf9 'j'\cf6 ,\cf9 'k'\cf6 ,\cf9 'l'\cf6 ,\cf9 'm'\cf6 ,\cf9 'n'\cf6 ,\cf9 'o'\cf6 ,\cf9 'p'\cf6 ,\cf9 'q'\cf6 ,\cf9 'r'\cf6 ,\cf9 's'\cf6 ,\cf9 't'\cf6 ,\cf9 'u'\cf6 ,\cf9 'v'\cf6 ,\cf9 'w'\cf6 ,\cf9 'x'\cf6 ,\cf9 'y'\cf6 ,\cf9 'z'\cf6 \};
 \f1 \cf0 \
 
 \f0 \cf6     
 \f2\b \cf5 for
 \f0\b0 \cf6 (
 \f2\b \cf5 int
-\f0\b0 \cf6  i = \cf8 0\cf6 ;i<\cf8 26\cf6 ;i++)
+\f0\b0 \cf6  i = \cf9 0\cf6 ;i<\cf9 26\cf6 ;i++)
 \f1 \cf0 \
 
 \f0 \cf6     \{
 \f1 \cf0 \
 
-\f0 \cf6         \cf9 mapp\cf6 [\cf10 alpha\cf6 [\cf10 i\cf6 ]] = i;
+\f0 \cf6         \cf10 mapp\cf6 [\cf8 alpha\cf6 [\cf8 i\cf6 ]] = i;
 \f1 \cf0 \
 
 \f0 \cf6     \}
@@ -66,10 +97,47 @@
 
 \f0 \cf6     
 \f2\b \cf5 int
-\f0\b0 \cf6  key[] = \{\cf8 2\cf6 ,\cf8 8\cf6 ,\cf8 15\cf6 ,\cf8 7\cf6 ,\cf8 4\cf6 ,\cf8 17\cf6 \};
+\f0\b0 \cf6  key[keyword.\cf8 length\cf6 ()];
 \f1 \cf0 \
 
-\f0 \cf6     \cf7 cin\cf6 >>s;
+\f0 \cf6     
+\f2\b \cf5 for
+\f0\b0 \cf6 (
+\f2\b \cf5 int
+\f0\b0 \cf6  i = \cf9 0\cf6 ; i< keyword.\cf8 length\cf6 ();i++)
+\f1 \cf0 \
+
+\f0 \cf6     \{
+\f1 \cf0 \
+
+\f0 \cf6         key[i] = \cf10 mapp\cf6 [\cf8 keyword\cf6 [\cf8 i\cf6 ]];
+\f1 \cf0 \
+
+\f0 \cf6     \}
+\f1 \cf0 \
+
+\f0 \cf6     \cf7 cout\cf6 <<\cf4 "M
+\f3 \uc0\u7843 
+\f0 ng Kho\'e1 K: "\cf6 ;
+\f1 \cf0 \
+
+\f0 \cf6     
+\f2\b \cf5 for
+\f0\b0 \cf6 (
+\f2\b \cf5 int
+\f0\b0 \cf6  i = \cf9 0\cf6  ; i< keyword.\cf8 length\cf6 ();i++)
+\f1 \cf0 \
+
+\f0 \cf6     \{
+\f1 \cf0 \
+
+\f0 \cf6         \cf7 cout\cf6 <<key[i]<<\cf4 "\\t"\cf6 ;
+\f1 \cf0 \
+
+\f0 \cf6     \}
+\f1 \cf0 \
+
+\f0 \cf6     \cf7 cout\cf6 <<\cf8 endl\cf6 ;
 \f1 \cf0 \
 
 \f0 \cf6     \cf7 string\cf6  t;
@@ -77,14 +145,14 @@
 
 \f0 \cf6     
 \f2\b \cf5 int
-\f0\b0 \cf6  point = \cf8 0\cf6 ;
+\f0\b0 \cf6  point = \cf9 0\cf6 ;
 \f1 \cf0 \
 
 \f0 \cf6     
 \f2\b \cf5 for
 \f0\b0 \cf6 (
 \f2\b \cf5 int
-\f0\b0 \cf6  i = \cf8 0\cf6 ;i < s.\cf10 size\cf6 ();i++)
+\f0\b0 \cf6  i = \cf9 0\cf6 ;i < s.\cf8 size\cf6 ();i++)
 \f1 \cf0 \
 
 \f0 \cf6     \{
@@ -92,7 +160,7 @@
 
 \f0 \cf6         
 \f2\b \cf5 char
-\f0\b0 \cf6  temp = alpha[(\cf9 mapp\cf6 [\cf10 s\cf6 [\cf10 i\cf6 ]] + key[point % \cf8 6\cf6 ])%\cf8 26\cf6 ];
+\f0\b0 \cf6  temp = alpha[(\cf10 mapp\cf6 [\cf8 s\cf6 [\cf8 i\cf6 ]] + key[point % keyword.\cf8 length\cf6 ()])%\cf9 26\cf6 ];
 \f1 \cf0 \
 
 \f0 \cf6         t+= temp;
@@ -110,19 +178,19 @@
 \f0 \cf6 \}
 \f1 \cf0 \
 
-\f3\i \cf11 //thiscryptosystemisnotsecure
+\f4\i \cf11 //thiscryptosystemisnotsecure
 \f1\i0 \cf0 \
 
-\f3\i \cf11 //vpxzgiaxivwoubttmjpwizitwzt
+\f4\i \cf11 //vpxzgiaxivwoubttmjpwizitwzt
 \f1\i0 \cf0 \
 
-\f3\i \cf11 // o = 14
+\f4\i \cf11 // o = 14
 \f1\i0 \cf0 \
 
-\f3\i \cf11 // y = 24
+\f4\i \cf11 // y = 24
 \f1\i0 \cf0 \
 
-\f3\i \cf11 // 17 + 24 = 41%26 =
+\f4\i \cf11 // 17 + 24 = 41%26 =
 \f1\i0 \cf0 \
 \
 }
