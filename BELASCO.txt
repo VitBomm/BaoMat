@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string>
+#include <map>
+#include <algorithm>
+using namespace std;
+map<char,int> mapp;
+int main()
+{
+    string keyword;
+    cout<<"Mời Nhập keyword: ";
+    cin>>keyword;
+    cout<<"Mời Nhập chuỗi cần mã hoá: ";
+    string s;
+    cin.ignore();
+    getline(cin,s);
+    cout<<endl;
+    char alpha[] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+    for(int i = 0;i<26;i++)
+    {
+        mapp[alpha[i]] = i;
+    }
+    int key[keyword.length()];
+    for(int i = 0 ;i <keyword.length();i++)
+    {
+        key[i] = mapp[keyword[i]];
+    }
+    string temp2;
+    int j = 0;
+    for(int i =0; i<s.length();i++)
+    {
+        if(s[i] <= 122 && s[i] >= 97)
+        {
+            temp2 += alpha[(mapp[s[i]]+key[j])%26];
+        }
+        else
+        {
+            temp2 += s[i];
+        }
+        j++;
+    }
+    cout<<"Chuỗi sau khi mã hoá: "<<temp2;
+    return 0;
+}
+//happy
+//hbrsc
+
+
