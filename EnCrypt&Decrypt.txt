@@ -1,0 +1,61 @@
+#include <iostream>
+#include <map>
+using namespace std;
+char a[] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+map<char,int> mapp;
+char mod(int n,int k,char a[])
+{
+    return a[(n+k)%26];
+}
+void decrypt(string s,string temp,char a[])
+{
+    if(s == temp)
+        {
+            cout<<"k = 1"<<endl;
+        }
+    string decrypt;
+    for(int i = 1;i<26;i++)
+        {
+            decrypt = "";
+            for(int j = 0; j<temp.size();j++)
+            {
+                if(mapp[temp[j]] - i < 0)
+                    decrypt += a[(26 + (mapp[temp[j]] - i))];
+                else
+                    decrypt += a[mapp[temp[j]] - i];
+            }
+            if(decrypt == s)
+            {
+                cout<<"Chuỗi sau khi Decrypt: "<<decrypt<<endl;
+                cout<<"k = "<<i<<endl;
+            }
+        }
+}
+void solved()
+{
+    for(int i = 0 ; i<26;i++)
+    {
+        mapp[a[i]] = i;
+    }
+    cout<<"Nhập Chuỗi Cần Mã Hoá: ";
+    string s;
+    int k;
+    cin>>s;
+    cout<<"Nhập Khoá k: ";
+    cin>>k;
+    string temp;
+    for(int i =0;i <s.length();i++)
+    {
+        temp += mod(mapp[s[i]],k,a);
+    }
+    cout<<"Chuỗi ban đầu: "<<s<<endl;
+    cout<<"Chuỗi sau khi encrypt: "<<temp<<endl;
+    decrypt(s, temp, a);
+}
+
+int main()
+{
+    solved();
+    return 0;
+}
+

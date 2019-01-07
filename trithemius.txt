@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+#include <map>
+#include <algorithm>
+using namespace std;
+map<char,int> mapp;
+int main()
+{
+    string keyword;
+    cout<<"Mời Nhập KeyWord: ";
+    cin>>keyword;
+    transform(keyword.begin(), keyword.end(), keyword.begin(),::tolower);
+    cout<<endl;
+    cout<<"Mời Nhập chuỗi cần mã hoá: ";
+    string s;
+    cin>>s;
+    cout<<endl;
+    char alpha[] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+    for(int i = 0;i<26;i++)
+    {
+        mapp[alpha[i]] = i;
+    }
+    int key[keyword.length()];
+    for(int i = 0; i< keyword.length();i++)
+    {
+        key[i] = mapp[keyword[i]];
+    }
+    cout<<"Mảng Khoá K: ";
+    for(int i = 0 ; i< keyword.length();i++)
+    {
+        cout<<key[i]<<"\t";
+    }
+    cout<<endl;
+    string t;
+    int point = 0;
+    for(int i = 0;i < s.size();i++)
+    {
+        char temp = alpha[(mapp[s[i]] + key[point % keyword.length()])%26];
+        t+= temp;
+        point++;
+    }
+    cout<<t;
+}
+//thiscryptosystemisnotsecure
+//vpxzgiaxivwoubttmjpwizitwzt
+// o = 14
+// y = 24
+// 17 + 24 = 41%26 =
+

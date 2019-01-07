@@ -1,0 +1,57 @@
+#include <iostream>
+#include <map>
+using namespace std;
+char mod(int n,int k)
+{
+    return (n+k)%256;
+}
+void decrypt(string s,string temp)
+{
+    if(s == temp)
+    {
+        cout<<"k = 0"<<endl;
+    }
+    string decrypt;
+    for(int i = 1;i<256;i++)
+    {
+        decrypt = "";
+        for(int j = 0; j<temp.size();j++)
+        {
+            if(temp[j] - i < 0)
+                decrypt += (256 + (temp[j] - i));
+            else
+                decrypt += temp[j] - i;
+        }
+        if(decrypt == s)
+        {
+            cout<<"Chuỗi sau khi Decrypt: "<<decrypt<<endl;
+            cout<<"k = "<<i<<endl;
+            break;
+        }
+    }
+}
+void solved()
+{
+    cout<<"Nhập Chuỗi Cần Mã Hoá: ";
+    string s;
+    int k;
+    getline(cin,s);
+    cout<<"Nhập Khoá k: ";
+    cin>>k;
+    k = k % 256;
+    string temp;
+    for(int i =0;i <s.length();i++)
+    {
+        temp += mod(s[i],k);
+    }
+    cout<<"Chuỗi ban đầu: "<<s<<endl;
+    cout<<"Chuỗi sau khi encrypt: "<<temp<<endl;
+    decrypt(s, temp);
+}
+
+int main()
+{
+    solved();
+    return 0;
+}
+
